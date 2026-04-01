@@ -13,7 +13,7 @@
     position: relative;
     width: 100%;
     margin: 0 auto;
-    max-width: 1440px;
+    max-width: 1400px;
     background-color: #003870;
     overflow: hidden;
     display: flex;
@@ -56,8 +56,8 @@
 
     @include lg-up {
       min-height: 100%;
-      padding-top: 8rem;
-      padding-bottom: 12rem;
+      padding-top: 7rem;
+      padding-bottom: 8rem;
       align-content: center;
     }
   }
@@ -71,8 +71,8 @@
     align-content: start;
 
     @include lg-up {
-      max-width: 57rem;
-      gap: 4rem;
+      max-width: 51rem;
+      gap: 2.5rem;
     }
   }
 
@@ -88,7 +88,7 @@
 
     @include lg-up {
       max-width: 100%;
-      font-size: 4rem;
+      font-size: 3.5rem;
     }
 
     &-bold {
@@ -103,7 +103,7 @@
       display: block;
       font-family: var(--font-text);
       font-weight: 400;
-      font-size: 2.8rem;
+      font-size: 2.4rem;
       line-height: 1.4;
       color: var(--White);
       margin: 0;
@@ -155,7 +155,7 @@
 
       @include lg-up {
         font-size: 2.8rem;
-        padding: 2rem;
+        padding: 1.5rem;
         width: 458px;
         display: inline-flex;
         background-color: #78b4f0;
@@ -189,7 +189,7 @@
     backdrop-filter: blur(30px);
     --webkit-backdrop-filter: blur(30px);
     background-color: rgba(255, 255, 255, 0.53);
-    padding: 2.5rem 3rem;
+    padding: 2rem 3rem;
     border-radius: 1.6rem 1.6rem 0 0; // Flat bottom for mobile to connect to blue box
     display: inline-flex;
     justify-content: center;

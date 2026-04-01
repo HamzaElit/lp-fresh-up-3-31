@@ -266,24 +266,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // ─── Smooth Scrolling for Header Links ──────────────────────────────────
   const navLinks = document.querySelectorAll(".lp-header__link");
   
-  const sectionMap = {
-    "Before After": ".lp-before-after",
-    "Your Next Steps": ".lp-new-confidence",
-    "Our Prices": ".lp-prices-tables",
-    "Differences": ".lp-why-us",
-    "Our Treatments": ".lp-our-treatments",
-    "Pre-Test-System": ".lp-pre-test-system"
-  };
-
   navLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
-      e.preventDefault();
-      
-      const linkText = this.textContent.trim();
-      const targetSelector = sectionMap[linkText];
-      
-      if (targetSelector) {
-        const targetSection = document.querySelector(targetSelector);
+      const targetId = this.getAttribute("href");
+
+      // Check if it's an internal link
+      if (targetId.startsWith("#")) {
+        e.preventDefault();
+        const targetSection = document.querySelector(targetId);
+
         if (targetSection) {
           const header = document.querySelector(".lp-header");
           const headerHeight = header ? header.offsetHeight : 0;
