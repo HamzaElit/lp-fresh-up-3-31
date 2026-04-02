@@ -4,6 +4,13 @@
   background-color: var(--White);
   padding: 4rem 0;
 
+  .embla__dots {
+    @include lg-up {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
   @include lg-up {
     padding: 6rem 0;
   }

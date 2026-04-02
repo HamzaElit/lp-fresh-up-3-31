@@ -263,6 +263,38 @@ document.addEventListener("DOMContentLoaded", () => {
       .on("scroll", handleSlideVideos)
       .on("reInit", handleSlideVideos);
   });
+  // ─── Sticky Mobile Bar ──────────────────────────────────
+  const stickyBar = document.getElementById("stickyBar");
+  const heroSection = document.querySelector(".lp-hero");
+
+  if (stickyBar && heroSection) {
+    const checkStickyBar = () => {
+      if (window.matchMedia("(min-width: 1024px)").matches) {
+        stickyBar.classList.remove("is-visible");
+        return;
+      }
+
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+      const docHeight = document.documentElement.scrollHeight;
+      const viewportHeight = window.innerHeight;
+      const scrollTop = window.scrollY;
+      const distanceFromBottom = docHeight - scrollTop - viewportHeight;
+
+      const pastHero = heroBottom <= 0;
+      const nearBottom = distanceFromBottom < 100;
+
+      if (pastHero && !nearBottom) {
+        stickyBar.classList.add("is-visible");
+      } else {
+        stickyBar.classList.remove("is-visible");
+      }
+    };
+
+    window.addEventListener("scroll", checkStickyBar, { passive: true });
+    window.addEventListener("resize", checkStickyBar, { passive: true });
+    checkStickyBar();
+  }
+
   // ─── Smooth Scrolling for Header Links ──────────────────────────────────
   const navLinks = document.querySelectorAll(".lp-header__link");
   

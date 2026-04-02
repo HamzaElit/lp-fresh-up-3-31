@@ -359,6 +359,113 @@ details {
   }
 }
 
+// ─── Sticky Mobile Bar ─────────────────────────
+.sticky-bar {
+  position: fixed;
+  bottom: 10%;
+  left: 20px;
+  right: 20px;
+  z-index: 999;
+  background-color: #163a5e;
+  border-radius: 16px;
+  padding: 1.4rem 2rem 1.2rem;
+  @include transform(translateY(100%));
+  @include transition(
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.4s ease
+  );
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+
+  &.is-visible {
+    @include transform(translateY(0));
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @include lg-up {
+    display: none !important;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+  }
+
+  &__btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-text);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    color: #fff !important;
+    background-color: #5b9dd6;
+    border: none;
+    border-radius: 100px;
+    padding: 1.3rem 2rem;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    @include transition(background-color 0.25s ease);
+
+    &:active {
+      background-color: darken(#5b9dd6, 8%);
+    }
+  }
+
+  &__google {
+    flex-shrink: 0;
+    background-color: #fff;
+    border-radius: 200px;
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+  }
+
+  &__trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  &__trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    img {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    span {
+      font-family: var(--font-text);
+      font-weight: 500;
+      font-size: 1.2rem;
+      line-height: 1;
+      color: rgba(255, 255, 255, 0.85);
+      white-space: nowrap;
+    }
+  }
+}
+
 // ─── Utilities ─────────────────────────
 .desktop-only {
   display: none !important;

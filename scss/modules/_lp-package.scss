@@ -45,25 +45,23 @@
   }
 
   &__content {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 3rem;
     margin-bottom: 4rem;
+    margin-top: 7rem;
 
     @include lg-up {
-      flex-direction: row;
+      grid-template-columns: 1.3fr 1fr;
       align-items: center;
       justify-content: center;
-      gap: 5rem;
+      gap: 3.3rem;
+      margin-top: 0;
     }
   }
 
   &__image {
     width: 100%;
-
-    @include lg-up {
-      width: 45%;
-    }
 
     img {
       width: 100%;
@@ -76,10 +74,6 @@
     position: relative;
     width: 100%;
     z-index: 1;
-
-    @include lg-up {
-      width: 55%;
-    }
   }
 
   &__highlight {
@@ -149,7 +143,7 @@
 
     &--vorteile {
       padding: 1.5rem 1rem 1.5rem 1.5rem;
-      font-size: 1.3rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: #1a1a1a;
       border-bottom: 2px solid #f1f1f1;
